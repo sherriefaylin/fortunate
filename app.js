@@ -3,7 +3,6 @@ var iintro = 0;
 var i = 0;
 var i2 = 0;
 var i3 = 0;
-var i4 = 0;
 
 
 var introtxt = "Welcome to Fortunate"
@@ -15,7 +14,7 @@ var txt3 = "3. You're stuck in your decision, unhappy and unable to pull yoursel
 
 var txt4 = "Now that you’ve strayed from societal norm, you’re on your own. But you get a lifeline and may phone a friend. Who do you pick?"
 
-var speed = 45;
+var speed = 40;
 
 function typeWriterIntro() {
     if (iintro < introtxt.length) {
@@ -45,7 +44,7 @@ function typeWriter() {
         if (i >= txt.length) {
             setTimeout(function () {
                 $("#fortune1").fadeIn();
-            }, 2000)
+            }, 1000)
 
         }
 
@@ -63,7 +62,7 @@ function typeWriter2() {
         if (i2 >= txt2.length) {
             setTimeout(function () {
                 $("#fortune2").fadeIn();
-            }, 2000)
+            }, 1000)
 
         }
 
@@ -81,7 +80,7 @@ function typeWriter3() {
         if (i3 >= txt3.length) {
             setTimeout(function () {
                 $("#fortune3").fadeIn();
-            }, 2000)
+            }, 1000)
 
         }
 
@@ -89,21 +88,24 @@ function typeWriter3() {
     }
 }
 
-function typeWriter4() {
-    if (i4 < txt4.length) {
-        document.getElementById("note4").innerHTML += txt4.charAt(i4);
-        i4++;
-        setTimeout(typeWriter4, speed);
-
-        if (i4 >= txt4.length) {
-            setTimeout(function () {
-                $("#fortune4").fadeIn();
-            }, 2000)
-
-        }
 
 
-    }
+function unfold() {
+    setTimeout(function () {
+        $("#ending-fortune").attr('src', 'assets/unfold1.png')
+    }, 1000)
+
+    setTimeout(function () {
+        $("#ending-fortune").attr('src', 'assets/unfold2.png')
+    }, 1500)
+
+    setTimeout(function () {
+        $("#ending-fortune").attr('src', 'assets/unfold3.png')
+    }, 2000)
+
+    setTimeout(function () {
+        $("#ending-fortune").attr('src', 'assets/urhere.png')
+    }, 2500)
 }
 
 
@@ -112,15 +114,12 @@ $(document).ready(function () {
     $("#fortune2").hide();
     $("#fortune3").hide();
     $("#fortune1").hide();
-    $("#fortune4").hide();
     $(".part2").hide();
     $(".part3").hide();
-    $(".part4").hide();
     $("#fortune1-cap").hide();
     $("#fortune2-cap").hide();
     $("#fortune3-cap").hide();
-    $("#fortune4-cap").hide();
-
+    $(".ending").hide();
 
     typeWriterIntro();
 
@@ -134,11 +133,7 @@ $(document).ready(function () {
                 left: e.pageX + 15,
                 top: e.pageY - 15
             })
-
         })
-
-
-
     })
 
     $("#fortune1").mouseleave(function () {
@@ -146,12 +141,8 @@ $(document).ready(function () {
         $("#fortune1-cap").fadeOut();
     })
 
-
-
     $("#fortune1").on('click', function () {
-
         $("#fortune1-cap").fadeOut();
-
         $(this).attr('src', 'assets/fortune-speed.gif')
         $(this).addClass('fortune-spin')
 
@@ -185,17 +176,18 @@ $(document).ready(function () {
     })
 
     $("#fortune2").on('click', function () {
-        typeWriter3();
+        $("#fortune2-cap").fadeOut();
+      
         $(this).attr('src', 'assets/fortune-speed.gif')
         $(this).addClass('fortune-spin')
 
-        setTimeout(function () {
-            $(".part2").fadeOut()
-
-        }, 3000)
-        setTimeout(function () {
-            $(".part3").fadeIn()
-        }, 4000)
+        $("#fortune2").on('click', function () {
+            $(".part2").fadeOut();
+            setTimeout(function () {
+                $(".part3").fadeIn()
+                typeWriter3();
+            }, 1000)
+        })
     })
 
 
@@ -231,51 +223,18 @@ $(document).ready(function () {
         $("#fortune3").on('click', function () {
             $(".part3").fadeOut();
             $(".ending").fadeIn();
-            // $(".part4").fadeIn()
-            // typeWriter4();
+        
         })
 
     })
 
-
-    // $("#fortune4").mouseenter(function () {
-    //     $("#fortune4-cap").fadeIn();
-    //     $(this).attr('src', 'assets/fortunate-shine.gif')
-    //     $("#fortune4").mousemove(function (e) {
-    //         $("#fortune4-cap").offset({
-    //             left: e.pageX + 15,
-    //             top: e.pageY - 15
-    //         })
-
-    //     })
+    $("#ending-fortune").on('click', function() {
+        console.log('clicking final')
+        unfold();
+    })
 
 
 
-    // })
-
-    // $("#fortune4").mouseleave(function () {
-    //     $(this).attr('src', 'assets/fortunate.png')
-    //     $("#fortune4-cap").fadeOut();
-    // })
-
-
-
-    // $("#fortune4").on('click', function () {
-
-    //     $("#fortune4-cap").fadeOut();
-
-    //     $(this).attr('src', 'assets/fortune-speed.gif')
-    //     $(this).addClass('fortune-spin')
-
-    //     $("#fortune4").on('click', function () {
-            
-
-    //     // end game
-
-
-    //     })
-
-    // })
 
 
 

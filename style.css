@@ -1,4 +1,4 @@
-.part1, .part2, .part3, .part4, #intro {
+.part1, .part2, .part3, .part4, #intro, #ending-fortune {
     width:300px;
     position: absolute;
     left: 50%;
@@ -19,11 +19,13 @@
 
 
 
-#fortune1, #fortune2, #fortune3 {
+#fortune1, #fortune2, #fortune3, #ending-fortune {
     width: 150px;
     margin: 25px;
     /* transition-duration: 1s; */
 }
+
+
 
 
 .fortune-spin {

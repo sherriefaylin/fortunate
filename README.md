@@ -1,3 +1,6 @@
 # fortunate
 
-interactive story telling
+An interactive story.
+
+![fortunate logo gif](assets/fortunate-shine.gif)
+

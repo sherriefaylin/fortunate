@@ -3,7 +3,7 @@ var iintro = 0;
 var i = 0;
 var i2 = 0;
 var i3 = 0;
-var i4
+var i4 = 0;
 
 
 var introtxt = "Welcome to Fortunate"
@@ -13,9 +13,9 @@ var txt2 = '2. You’re seventeen. You must make a decision that will put you in
 
 var txt3 = "3. You're stuck in your decision, unhappy and unable to pull yourself together while the debt continues to grow exponentially. What are you doing to do?";
 
-var txt4="Now that you’ve strayed from societal norm, you’re on your own. But you get a lifeline and may phone a friend. Who do you pick?"
+var txt4 = "Now that you’ve strayed from societal norm, you’re on your own. But you get a lifeline and may phone a friend. Who do you pick?"
 
-var speed = 50;
+var speed = 45;
 
 function typeWriterIntro() {
     if (iintro < introtxt.length) {
@@ -25,7 +25,7 @@ function typeWriterIntro() {
 
         if (iintro >= introtxt.length) {
             setTimeout(function () {
-             $("#intro").fadeOut();
+                $("#intro").fadeOut();
             }, 1000)
             setTimeout(function () {
                 typeWriter();
@@ -149,7 +149,7 @@ $(document).ready(function () {
 
 
     $("#fortune1").on('click', function () {
-        
+
         $("#fortune1-cap").fadeOut();
 
         $(this).attr('src', 'assets/fortune-speed.gif')
@@ -168,7 +168,7 @@ $(document).ready(function () {
     $("#fortune2").mouseenter(function () {
         $(this).attr('src', 'assets/fortunate-shine.gif')
         $("#fortune2-cap").fadeIn();
-        
+
 
         $("#fortune2").mousemove(function (e) {
             $("#fortune2-cap").offset({
@@ -222,7 +222,7 @@ $(document).ready(function () {
 
 
     $("#fortune3").on('click', function () {
-        
+
         $("#fortune3-cap").fadeOut();
 
         $(this).attr('src', 'assets/fortune-speed.gif')
@@ -230,50 +230,56 @@ $(document).ready(function () {
 
         $("#fortune3").on('click', function () {
             $(".part3").fadeOut();
-            $(".part4").fadeIn()
-            typeWriter4(); 
+            $(".ending").fadeIn();
+            // $(".part4").fadeIn()
+            // typeWriter4();
         })
 
     })
 
-    $("#fortune4").mouseenter(function () {
-        $("#fortune4-cap").fadeIn();
-        $(this).attr('src', 'assets/fortunate-shine.gif')
-        $("#fortune4").mousemove(function (e) {
-            $("#fortune4-cap").offset({
-                left: e.pageX + 15,
-                top: e.pageY - 15
-            })
 
-        })
+    // $("#fortune4").mouseenter(function () {
+    //     $("#fortune4-cap").fadeIn();
+    //     $(this).attr('src', 'assets/fortunate-shine.gif')
+    //     $("#fortune4").mousemove(function (e) {
+    //         $("#fortune4-cap").offset({
+    //             left: e.pageX + 15,
+    //             top: e.pageY - 15
+    //         })
 
-
-
-    })
-
-    $("#fortune4").mouseleave(function () {
-        $(this).attr('src', 'assets/fortunate.png')
-        $("#fortune4-cap").fadeOut();
-    })
+    //     })
 
 
 
-    $("#fortune4").on('click', function () {
-        
-        $("#fortune4-cap").fadeOut();
+    // })
 
-        $(this).attr('src', 'assets/fortune-speed.gif')
-        $(this).addClass('fortune-spin')
+    // $("#fortune4").mouseleave(function () {
+    //     $(this).attr('src', 'assets/fortunate.png')
+    //     $("#fortune4-cap").fadeOut();
+    // })
 
-        $("#fortune4").on('click', function () {
-            $(".part2").fadeOut();
-            setTimeout(function () {
-                $(".part3").fadeIn()
-                typeWriter4();
-            }, 1000)
-        })
 
-    })
+
+    // $("#fortune4").on('click', function () {
+
+    //     $("#fortune4-cap").fadeOut();
+
+    //     $(this).attr('src', 'assets/fortune-speed.gif')
+    //     $(this).addClass('fortune-spin')
+
+    //     $("#fortune4").on('click', function () {
+            
+
+    //     // end game
+
+
+    //     })
+
+    // })
+
+
+
+ 
 
 
 

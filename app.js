@@ -10,9 +10,8 @@ var txt = '1. You must be rich in social currency to play.';
 
 var txt2 = '2. You’re seventeen. You must make a decision that will put you in debt for the rest of your life with no guarantee of success.';
 
-var txt3 = "3. You're stuck in your decision, unhappy and unable to pull yourself together while the debt continues to grow exponentially. What are you doing to do?";
+var txt3 = "3. You're stuck in your decision, unhappy and unable to pull yourself together while you snowball in debt.";
 
-var txt4 = "Now that you’ve strayed from societal norm, you’re on your own. But you get a lifeline and may phone a friend. Who do you pick?"
 
 var speed = 40;
 
@@ -92,19 +91,19 @@ function typeWriter3() {
 
 function unfold() {
     setTimeout(function () {
-        $("#ending-fortune").attr('src', 'assets/unfold1.png')
+        $("#ending-fortune").attr('src', 'assets/unfold-blk1.png')
     }, 1000)
 
     setTimeout(function () {
-        $("#ending-fortune").attr('src', 'assets/unfold2.png')
+        $("#ending-fortune").attr('src', 'assets/unfoldblk2.png')
     }, 1500)
 
     setTimeout(function () {
-        $("#ending-fortune").attr('src', 'assets/unfold3.png')
+        $("#ending-fortune").attr('src', 'assets/unfoldblk3.png')
     }, 2000)
 
     setTimeout(function () {
-        $("#ending-fortune").attr('src', 'assets/urhere.png')
+        $("#ending-fortune").attr('src', 'assets/urhereblk.png')
     }, 2500)
 }
 
@@ -120,6 +119,7 @@ $(document).ready(function () {
     $("#fortune2-cap").hide();
     $("#fortune3-cap").hide();
     $(".ending").hide();
+    $("#ending-fortune").hide();
 
     typeWriterIntro();
 
@@ -222,18 +222,21 @@ $(document).ready(function () {
 
         $("#fortune3").on('click', function () {
             $(".part3").fadeOut();
-            $(".ending").fadeIn();
+            setTimeout(function (){
+                $(".ending").fadeIn();
+            }, 1000)
         
         })
 
     })
 
-    $("#ending-fortune").on('click', function() {
-        console.log('clicking final')
+    $("#ending1").on('click', function() {
+        $("#ending1").hide();
+        $("#ending-fortune").show();
         unfold();
     })
 
-
+   
 
 
 

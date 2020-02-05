@@ -1,4 +1,4 @@
-.part1, .part2, .part3, .part4, #intro, #ending-fortune {
+.part1, .part2, .part3, #intro, #ending-fortune {
     width:300px;
     position: absolute;
     left: 50%;
@@ -7,6 +7,15 @@
     text-align: center;
     /* transition-duration: 1s; */
 
+}
+
+#ending1 {
+    width:128px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 #note1, #note2, #intro, #note3 {
@@ -19,10 +28,14 @@
 
 
 
-#fortune1, #fortune2, #fortune3, #ending-fortune {
+#fortune1, #fortune2, #fortune3 {
     width: 150px;
     margin: 25px;
     /* transition-duration: 1s; */
+}
+
+.ending {
+    width: 300px;
 }
 
 
